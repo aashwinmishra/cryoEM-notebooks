@@ -298,7 +298,7 @@ def define_grid_in_fov(sample_dimensions, optics_params, detector_params, pdb_fi
 	#
 	x_range = np.arange(x_origin, x_frontier, boxsize)
 	y_range = np.arange(y_origin, y_frontier, boxsize)
-	n_particles = np.int(fov_Nx*fov_Ny)
+	n_particles = int(fov_Nx*fov_Ny)
 	return x_range, y_range, n_particles
 #
 def microgaph2particles(micrograph, sample_dimensions, optics_params, detector_params, pdb_file=None, Dmax=30, pad=5.):
@@ -309,9 +309,9 @@ def microgaph2particles(micrograph, sample_dimensions, optics_params, detector_p
 	fov_Ny = np.floor(fov_Ly/boxsize)
 	#
 	pixel_size = (fov_Lx/micrograph.shape[1] + fov_Ly/micrograph.shape[0])/2.
-	n_boxsize = np.int(boxsize/pixel_size)
-	Nx = np.int(fov_Nx*n_boxsize)
-	Ny = np.int(fov_Ny*n_boxsize)
+	n_boxsize = int(boxsize/pixel_size)
+	Nx = int(fov_Nx*n_boxsize)
+	Ny = int(fov_Ny*n_boxsize)
 	data = micrograph[0:Ny, 0:Nx]
 	#print(fov_Lx, fov_Ly, micrograph.)
 	particles = slicenstack(data, n_boxsize=n_boxsize)
