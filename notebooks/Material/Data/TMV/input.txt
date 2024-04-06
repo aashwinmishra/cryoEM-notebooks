@@ -30,7 +30,7 @@ generate_micrographs = yes
 # simulation have been completed. The format of the log file is such that
 # it can be used as input in another simulation.
 
-log_file = /content/Data/TMV/simulator.log
+log_file = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/simulator.log
 
 === sample ===
 
@@ -53,14 +53,14 @@ thickness_center = 50
 # reading a volume map (for example an MRC file) or generating a random shape.
 
 source = pdb
-pdb_file_in = /content/Data/TMV/2OM3.pdb
+pdb_file_in = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/2OM3.pdb
 
 # The PDB file specifies the structure of one subunit building up the virus.
 # The following file specifies a number of transformations which are applied 
 # to this subunit to obtain a bigger piece of the virus. The data were taken
 # from lines 154-300 of the PDB file.
 
-pdb_transf_file_in = /content/Data/TMV/2OM3_transf.txt
+pdb_transf_file_in = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/2OM3_transf.txt
 
 # The PDB file is first converted into a volume map of the electrostatic potential
 # in the molecule. The size of the voxels in this map is set to 0.1 nm.
@@ -71,8 +71,8 @@ voxel_size = 0.1
 # present simulation, but these files can be reused in subsequent simulations
 # to save computational time.
 
-map_file_re_out = /content/Data/TMV/2OM3_map.mrc
-map_file_im_out = /content/Data/TMV/2OM3_abs_map.mrc
+map_file_re_out = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/2OM3_map.mrc
+map_file_im_out = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/2OM3_abs_map.mrc
 
 === particleset ===
 
@@ -84,7 +84,7 @@ map_file_im_out = /content/Data/TMV/2OM3_abs_map.mrc
 particle_type = TMV
 num_particles = 1
 particle_coords = file
-coord_file_in = /content/Data/TMV/TMV_coord.txt
+coord_file_in = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/TMV_coord.txt
 
 === geometry ===
 
@@ -195,7 +195,7 @@ mtf_beta = 40
 
 # The images are all written to a single MRC file called tiltseries.mrc
 
-image_file_out = /content/Data/TMV/tiltseries.mrc
+image_file_out = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/tiltseries.mrc
 
 === detector ===
 
@@ -214,5 +214,5 @@ mtf_b = 0.2
 mtf_c = 0.1
 mtf_alpha = 10
 mtf_beta = 40
-image_file_out = /content/Data/TMV/tiltseries_nonoise.mrc
+image_file_out = /content/cryoEM-notebooks/notebooks/Material/Data/TMV/tiltseries_nonoise.mrc
 
