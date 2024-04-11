@@ -1,12 +1,14 @@
 """
 Utils to write input.txt and coord_file for TEM-Simulator.
 """
+
+
 def write_inputfile(base_address = "/content/cryoEM-notebooks/notebooks/Material/Data/TMV/", 
                     log_file = "simulator.log",
                     sample_diameter = 1000,
                     thickness_edge = 100,
                     thickness_center = 50,
-                    pdb_file_in = "20M3.pdb",
+                    pdb_file_in = "2OM3.pdb",
                     pdb_transf_file_in = "2OM3_transf.txt",
                     voxel_size = 0.1,
                     map_file_re_out = "2OM3_map.mrc",
@@ -70,7 +72,7 @@ def write_inputfile(base_address = "/content/cryoEM-notebooks/notebooks/Material
   f.write("det_pix_y = 400\n")
   f.write("pixel_size = 15\n")
   f.write("gain = 10\n")
-  f.write("use_quantization = no\n")
+  f.write("use_quantization = yes\n")
   f.write("dqe = 0.8\n")
   f.write("mtf_a = 0.7\n")
   f.write("mtf_b = 0.2\n")
@@ -78,19 +80,6 @@ def write_inputfile(base_address = "/content/cryoEM-notebooks/notebooks/Material
   f.write("mtf_alpha = 10\n")
   f.write("mtf_beta = 40\n")
   f.write(f"image_file_out = {base_address+image_file_out}\n")
-  f.write("=== detector ===\n")
-  f.write("det_pix_x = 400\n")
-  f.write("det_pix_y = 400\n")
-  f.write("pixel_size = 15\n")
-  f.write("gain = 10\n")
-  f.write("use_quantization = no\n")
-  f.write("dqe = 0.8\n")
-  f.write("mtf_a = 0.7\n")
-  f.write("mtf_b = 0.2\n")
-  f.write("mtf_c = 0.1\n")
-  f.write("mtf_alpha = 10\n")
-  f.write("mtf_beta = 40\n")
-  f.write(f"image_file_out = {base_address+image_file_out_nonoise}")
   f.close()
 
 
