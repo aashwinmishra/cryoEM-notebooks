@@ -1,12 +1,27 @@
 """
 Utils to write input.txt and coord_file for TEM-Simulator, run singleton TEM simulations, and multiplle sims in parallel.
 """
+import os, sys, shutil
+from distutils.dir_util import copy_tree
+import multiprocessing
+import concurrent.futures
+import numpy as np
+
 
 def run_parallel_TEM_simulations(args_array: np.array = None) -> np.array:
   """
   Takes a numpy array of dimesion [num_processes, 22]
   Runs num_processes TEM_simulations in parallel with the inputs.
   Returns a [num_processes, 400, 400] numpy array of images.
+   Args:
+    args: A Numpy vector of [num_processes, 22],
+    where each row is a vector arranged as 
+    [index, acc_voltage, energy_spread, total_dose, magnification, cs, cc, 
+    aperture, focal_length, cond_ap_angle, dqe, mtf_a, mtf_b, mtf_c, mtf_alpha, 
+    mtf_beta, 
+    x, y, z, theta_x, theta_y, theta_z]
+  Returns:
+    np.array of dimensions [num_processes, 400, 400] (default dim_x = dim_y = 400)
   """
   if args_array is None:
     args_array = np.array([[11, 200.0, 1.3, 6000, 30000.0, 2.0, 2.0, 50.0, 3.0, 0.1, 0.8, 0.7, 0.2, 0.1, 10.0, 40.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
