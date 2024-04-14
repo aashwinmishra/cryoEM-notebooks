@@ -6,7 +6,7 @@ from distutils.dir_util import copy_tree
 import multiprocessing
 import concurrent.futures
 import numpy as np
-import .cryoemio as cryoemio
+import src.cryoemio as cryoemio
 
 
 def run_parallel_TEM_simulations(args_array: np.array = None) -> np.array:
